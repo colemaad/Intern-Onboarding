@@ -1,0 +1,116 @@
+<div class="row">
+	<div class="col-md-4 col-centered">
+			<div class="panel-heading">
+				<h3>
+					Users
+				</h3>
+				<h5>
+					<input type="text" ng-model="search" class="search-query pull-left" placeholder="Search (name, email, ect)">
+				</h5>
+				<a ui-sref="users.new" class="btn btn-primary pull-right"><i class="icon-white"></i> Add new user</a>
+			</div>
+			<table ng-table="tableParams" class="table">
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in users | filter: search">
+						<td data-title="'First Name'">
+							<div>{{user.firstName}}</div>
+						</td>
+						<td data-title="'Last Name'">
+							<div>{{user.lastName}}</div>
+						</td>
+				<!--		<td data-title="'Phone Number'">
+							<div>{{user.phone}}</div>
+						</td>
+						<td data-title="'Email Address'">
+							<div>{{user.email}}</div>
+						</td>-->
+						<td data-title="'Actions'" >
+						<!--	<a ng-if="!user.$edit" href="" class="btn btn-primary btn-xs" ng-click="open(user.$id)">Edit</a> -->
+							<a ui-sref="users.edit({id: user._id})" ng-click="selectUser(user); createEditUser()" class="btn btn-primary btn-xs">Edit/View
+							</a>
+							<a ui-sref="users" ng-click="openModal('sm')" class="btn btn-default btn-xs">Delete</a>
+						</a>
+							<a ng-if="user.$edit" href="" class="btn btn-primary " ng-click="save()">Save</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+		<!--	<div class="panel-body panel-info">
+				<div class="row">
+					<div class="col-md-12 fixed-panel-scroll">
+						<accordion close-others="true">
+							<accordion-group class = "panel-info" heading="{{user.firstName + ' ' + user.lastName }}" ng-click="selectUser(user)"
+											 ng-repeat="user in users | filter: search">
+								<div class="row userButtonBar">
+									<div class="col-md-12">
+										<div class="btn-group btn-group-sm btn-group-justified" role="group">
+											<div class = "col-md-6">
+												<div class="panel panel-primary">
+													<div class = "panel-heading"ng-click="selectUser(user)">{{user.firstName + " " + user.lastName}}</div>
+													<div>
+													{{"Email: "+ user.email + "   "+ "Phone: " + user.phone}}
+													</div>
+													<a ui-sref="users.edit({id: user._id})"
+														ng-click="selectUser(user); createEditUser()"
+														tooltip="Edit {{user.firstName}}'s Profile"
+														tooltip-placement="top" tooltip-trigger="mouseenter" tooltip-popup-delay="1000" tooltip-append-to-body="true"
+														class="btn btn-warning">
+														<span class="glyphicon glyphicon-pencil"></span>
+													</a>
+													<a ui-sref="users"
+														class="btn btn-danger"
+														ng-click="openModal('sm')">
+													<span class="glyphicon glyphicon-trash"></span>
+										</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="panel panel-info"
+											 ng-show="phone">
+											<div class="panel-heading user-panel-header">
+												<h5 class="panel-title">Phone</h5>
+											</div>
+											<div class="panel-body user-panel-body">
+												{{'('+ user.phone.slice(0,3) + ') ' + user.phone.slice(3,6) + '-' + user.phone.slice(6,10)}}
+											{{user.phone}}
+											</div>
+										</div>
+										<div class="panel panel-info"
+											 ng-show="email">
+											<div class="panel-heading user-panel-header">
+												<h5 class="panel-title">Email</h5>
+											</div>
+											<div class="panel-body user-panel-body">
+												{{user.email}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</accordion-group>
+						</accordion>
+					</div>
+				</div>
+			</div> -->
+
+	</div>
+	<div class="col-md-8">
+		<div class="row">
+			<div class="col-md-8">
+				<div ui-view></div>
+			</div>
+		</div>
+	</div>
+</div>

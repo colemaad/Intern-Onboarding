@@ -1,0 +1,67 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1 class="panel-title">
+			{{userName}}
+			<a ui-sref="users"
+	   		   class="close">
+	   		   <span class="glyphicon glyphicon-remove"></span>
+	   		</a>
+	   </h1>
+	</div>
+	<div class="panel-body panel-default">
+		<form name="editForm" class="form-horizontal">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group"
+						 ng-class="{'has-success': editForm.first.$valid,	'has-error': editForm.first.$invalid && editForm.first.$dirty}">
+						<label for="firstName" class="col-md-5 form-label">First Name:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="text" class="form-control input-sm" name="first" id="firstName" ng-model="modUser.firstName" placeholder="{{user.firstName}}" required ng-maxlength=32>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group"
+						 ng-class="{'has-success': editForm.last.$valid, 'has-error': editForm.last.$invalid && editForm.last.$dirty}">
+						<label for="lastName" class="col-md-5 form-label">Last Name:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="text"   class="form-control input-sm" name="last" id="lastName" ng-model="modUser.lastName" placeholder="{{user.lastName}}" required ng-maxlength=32>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group"
+						 ng-class="{'has-success': editForm.phone.$valid,'has-error': editForm.phone.$invalid && editForm.phone.$dirty}">
+						<label for="phone"
+							   class="col-md-5 form-label">Phone Number:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="tel" class="form-control input-sm" name="phone" id="phone" ng-model="modUser.phone" placeholder="{{'('+ user.phone.slice(0,3) + ') ' + user.phone.slice(3,6) + '-' + user.phone.slice(6,10)}}" required ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="email"
+							   class="col-md-5 form-label">Email Address:</label>
+						<div class="col-md-7">
+							<p class="form-control-static">{{modUser.email}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		 	<a ui-sref="users" class="btn btn-default  pull-right" ng-disabled="editForm.$invalid" ng-click="editUser(modUser)">Apply Changes</a>
+		</form>
+	</div>
+</div>

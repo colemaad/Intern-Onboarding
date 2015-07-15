@@ -1,0 +1,57 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h1 class="panel-title">
+			<b>{{user.firstName + " " + user.lastName}}</b>
+			<a ui-sref="users"
+	   		   class="close">
+	   		   <span class="glyphicon glyphicon-remove"></span>
+	   		</a>
+	   	</h1>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<h3 class="panel-title">Name and Email</h3>
+					</div>
+					<div class="panel-body">
+					{{user.firstName + " " + user.lastName + "      "	+user.email}}
+					</div>
+				</div>
+			</div>
+
+		<!--	<div class="col-md-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Email</h3>
+					</div>
+					<div class="panel-body">
+						{{user.email}}
+					</div>
+				</div>
+			</div> -->
+		</div>
+	</div>
+
+
+
+
+	<div class="panel-footer panel-info">
+			<a ui-sref="users.edit({id: user._id})"
+			   class="btn btn-warning pull-right"
+			   ng-click="createEditUser()"
+			   tooltip="Edit {{user.firstName}}'s Profile"
+			   tooltip-placement="bottom"
+			   tooltip-trigger="mouseenter"
+			   tooltip-popup-delay="1000"
+			   tooltip-append-to-body="true">
+				<span class="glyphicon glyphicon-pencil"></span>
+			</a>
+	  		<a ui-sref="users"
+	  		   class="btn btn-danger"
+	  		   ng-click="openModal('sm')">
+				<span class="glyphicon glyphicon-trash"></span>
+			</a>
+	</div>
+</div>

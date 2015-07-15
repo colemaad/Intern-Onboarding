@@ -1,0 +1,16 @@
+        <div class="modal-content panel-danger">
+            <div class="modal-header panel-heading">
+                <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Deleting User: {{user.firstName + " " + user.lastName}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete {{user.firstName}}?</p>
+                <p class="text-warning"><small>This is permanent.</small></p>
+            </div>
+            <div class="modal-footer">
+							<button class="btn btn-danger" ng-click="delete()">Delete</button>
+							<div class="btn btn-primary" ng-click="cancel()">Cancel</div>
+              
+
+            </div>
+        </div>
