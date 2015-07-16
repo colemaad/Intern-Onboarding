@@ -1,4 +1,4 @@
-var app = angular.module('uxiApp', ['ngResource','ui.router', 'ui.bootstrap', 'ngMessages']);
+var app = angular.module('app', ['ngResource','ui.router', 'ui.bootstrap', 'ngMessages']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/users")
