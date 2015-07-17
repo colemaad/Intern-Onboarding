@@ -35,7 +35,7 @@
 						<!--	<a ng-if="!user.$edit" href="" class="btn btn-primary btn-xs" ng-click="open(user.$id)">Edit</a> -->
 							<a ui-sref="users.edit({id: user._id})" ng-click="selectUser(user); createEditUser()" class="btn btn-primary btn-xs">Edit/View
 							</a>
-							<a ui-sref="users" ng-click="openModal('sm')" class="btn btn-default btn-xs">Delete</a>
+							<a ui-sref="users" ng-click="selectUser(user); openModal('sm')" class="btn btn-default btn-xs">Delete</a>
 						</a>
 							<a ng-if="user.$edit" href="" class="btn btn-primary " ng-click="save()">Save</a>
 						</td>
