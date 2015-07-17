@@ -1,25 +1,14 @@
-
-
-
-
-
-
-
 app.controller('usersController', function($scope, $state, $modal, $log, userService) {
 	userService.getUsers();
 	$scope.user = angular.copy(userService.user);
 	$scope.newUser = angular.copy($scope.user);
-
 	$scope.orderRadio = 'firstName';
 	$scope.reverse = false;
 	$scope.uniqueEmail = true;
 	userInfo = {phone: false,
 					 email: false};
 
-	$scope.cleanPhoneNumber = function(phoneNum) {
-		return phoneNum;
-	//	.replace(/\D/g,'');
-	}
+
 
 	$scope.addUser = function(user) {
 		user.phone = $scope.cleanPhoneNumber(user.phone);

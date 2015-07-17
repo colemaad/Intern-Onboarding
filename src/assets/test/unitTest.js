@@ -1,7 +1,7 @@
 describe('Main Test ', function() {
 	beforeEach(module('app'));
 
-  describe('Controller Function Test ', function() {
+  describe('Controller Initialization', function() {
 		it('should be user controller', function() {
 			expect('app.usersController').toBeDefined();
 		});
@@ -27,12 +27,36 @@ describe('Main Test ', function() {
 		email: "coler@banno.com"
 	};
 
-	describe('actual content controllers ', function() {
+	describe('user Controller', function() {
 		var peeps, scope;
 		beforeEach(inject(function ($rootScope, $controller) {
 			scope = $rootScope.$new();
 			peeps = $controller('usersController', {$scope: scope});
+
 		}));
+		describe('Scope Variables', function(){
+			it('should set orderRadio', function() {
+				expect('app.usersController.orderRadio').not.toBe(null);
+			});
+			it('should set orderRadio', function() {
+				expect('app.usersController.$scope.reverse').toBeFalsy;
+			});
+			it('should set orderRadio', function() {
+				expect('app.usersController.$scope.uniqueEmail').toBeTruthy;
+			});
+
+
+		});
+
+		describe('Scope Functions', function() {
+			it('should set orderRadio', function() {
+				expect('app.usersController.createEditUser').not.toBe(null);
+			});
+			it('should set orderRadio', function() {
+				expect('app.usersController.addUser').not.toBe(null);
+			});
+
+		});
 
 
 	});
