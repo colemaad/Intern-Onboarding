@@ -76,6 +76,7 @@ describe('Main Test ', function() {
 			});
 			it('should check redirect', function(){
 				expect('app.usersController.redirect').not.toBe(null);
+
 			});
 
 		});

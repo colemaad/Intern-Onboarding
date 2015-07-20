@@ -27,7 +27,8 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 
 	$scope.createEditUser = function() {
 		$scope.modUser = angular.copy($scope.user);
-
+	//	$scope.modUser.phone = '(' + $scope.modUser.phone.slice(0,3) + ') ' +
+			//					$scope.modUser.phone.slice(3,6) + '-' + $scope.modUser.phone.slice(6,10);
 	}
 
 	$scope.deleteUser = function(user) {
@@ -59,6 +60,15 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 				},
 			}
 		});
+
+
+
+
+		modalInstance.result.then(function (selectedItem) {
+			$scope.selected = selectedItem;
+		}, function() {
+			$log.info('Modal dismissed at: ' + new Date());
+		})
 	};
 
 	$scope.$on('UPDATE_USERS', function(event, newUsersList){
