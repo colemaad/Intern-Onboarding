@@ -48,26 +48,34 @@ describe('Main Test ', function() {
 				expect('app.usersController.$scope.uniqueEmail').toBeTruthy;
 			});
 		});
-		
+
 		//Functions
 		describe('Scope Functions', function() {
-
-			it('should set create copy of user to edit', function() {
+			it('should edit user', function() {
 				expect('app.usersController.createEditUser').not.toBe(null);
 			});
 			it('should select user', function() {
 				scope.selectUser(data);
 				expect(scope.user).toBe(data);
 			});
+			it('should add user ', function() {
+				spyOn(userService, 'addUser');
+				scope.addUser(data);
+				expect(userService.addUser).not.toThrowError(TypeError);
+			});
 			it('should delete user', function() {
 				spyOn(userService, 'deleteUser');
 				scope.deleteUser(data);
-				expect(userService.deleteUser).toHaveBeenCalled();
-			});
-			it('should delete a user', function() {
-				spyOn(userService, 'deleteUser');
-				scope.deleteUser(data);
 				expect(userService.deleteUser).not.toThrowError(TypeError);
+			});
+			it('should open modal', function() {
+				expect('app.usersController.openModal').toBeTruthy;
+			});
+			it('should check email', function() {
+				expect('app.usersController.checkEmail').toBeTruthy;
+			});
+			it('should check redirect', function(){
+				expect('app.usersController.redirect').not.toBe(null);
 			});
 
 		});
