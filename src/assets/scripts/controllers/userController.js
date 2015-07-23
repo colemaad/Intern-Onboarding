@@ -54,12 +54,6 @@ app.controller('usersController', function($scope, $state, $modal, $log, userSer
 				},
 			}
 		});
-
-		modalInstance.result.then(function (selectedItem) {
-			$scope.selected = selectedItem;
-		}, function() {
-			$log.info('Modal dismissed at: ' + new Date());
-		})
 	};
 
 	$scope.$on('UPDATE_USERS', function(event, newUsersList){

@@ -1,6 +1,5 @@
 app.controller('modalInstanceController', function($scope, $modalInstance, $state, user, userService){
 	$scope.user = user;
-
 	$scope.delete = function() {
 		userService.deleteUser($scope.user);
 		$modalInstance.close();
