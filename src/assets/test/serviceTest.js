@@ -1,5 +1,4 @@
 describe('Testing Services', function() {
-
 	var abe = {
 		_id:22,
 		firstName: "Aber",
@@ -15,13 +14,11 @@ describe('Testing Services', function() {
 		email: "sharoncol@banno.com"
 	};
 
-
 	beforeEach(module('app'));
-
 	beforeEach(inject(function(_$httpBackend_) {
 		backEnd = _$httpBackend_;
 		backEnd.whenGET('http://localhost:24149/users').respond();
-		backEnd.whenPOST('http://localhost:24149/users').respond();
+		backEnd.whenPOST('http://localhost:24149/users/22').respond();
 		backEnd.whenPUT('http://localhost:24149/users/22').respond();
 		backEnd.whenDELETE('http://localhost:24149/users/22').respond();
 	}));
@@ -31,10 +28,8 @@ describe('Testing Services', function() {
  });
 
 	describe('userService', function() {
-
 		beforeEach(inject(function (_userService_) {
 			userService = _userService_;
-
 		}));
 		it('should get list of users', function() {
 			backEnd.expect('GET', 'http://localhost:24149/users');
@@ -42,20 +37,18 @@ describe('Testing Services', function() {
 			backEnd.flush();
 		});
 		it('should add user', function() {
-			backEnd.expect('POST', 'http://localhost:24149/users');
-
-			
-			userService.addUser();
+			backEnd.expect('POST', 'http://localhost:24149/users/22');
+			userService.addUser(abe);
 			backEnd.flush();
 		});
-		it('should edit and save a user ', function() {
-			backEnd.expect('PUT', 'http://localhost:24149/users/22');
-			userService.editUser(abe);
-			backEnd.flush();
-		});
-		it('should delete a user', function() {
+		it('should delete user', function() {
 			backEnd.expect('DELETE', 'http://localhost:24149/users/22');
 			userService.deleteUser(abe);
+			backEnd.flush();
+		});
+		it('should edit user', function() {
+			backEnd.expect('PUT', 'http://localhost:24149/users/22');
+			userService.editUser(abe);
 			backEnd.flush();
 		});
 

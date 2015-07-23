@@ -1,0 +1,66 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1 class="panel-title">
+			<b>New User</b>
+			<a ui-sref="users" class="close">
+	   		   <span class="glyphicon glyphicon-remove"></span>
+	   		</a>
+	   </h1>
+	</div>
+	<div class="panel-body panel-default">
+		<form name="newUser" class="form-horizontal">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group" ng-class="{'has-success': newUser.first.$valid, 'has-error': newUser.first.$invalid && newUser.first.$dirty}">
+						<label for="firstName" class="col-md-5 form-label">First Name:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="text" class="form-control input-sm"name="first" id="firstName" ng-model="newUser.firstName"  placeholder="First name" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group" ng-class="{'has-success': newUser.last.$valid, 'has-error': newUser.last.$invalid && newUser.last.$dirty}">
+						<label for="lastName" class="col-md-5 form-label">Last Name:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="text" class="form-control input-sm" name="last" id="lastName" ng-model="newUser.lastName" placeholder="Last name" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group" ng-class="{'has-success': newUser.phone.$valid, 'has-error': newUser.phone.$invalid && newUser.phone.$dirty}">
+						<label for="phone" class="col-md-5 form-label">Phone Number:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="tel" class="form-control input-sm" name="phone" id="phone" ng-model="newUser.phone" placeholder="xxx-xxx-xxxx" required  ng-pattern="/^\(?(\d{3})\)?[-|' ']?(\d{3})[-|' ']?(\d{4})$/">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group" ng-class="{'has-success': newUser.email.$valid && newUser.email.$dirty,'has-error': newUser.email.$invalid && newUser.email.$dirty}">
+						<label for="email" class="col-md-5 form-label">Email Address:</label>
+						<div class="col-md-7">
+							<div class="input-group">
+								<input type="email" class="form-control input-sm" name="email" id="email" placeholder="Valid Email Address" ng-model="newUser.email" ng-change="checkEmail(newUser.email)" required>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<a ui-sref="users" class="btn btn-default" ng-disabled="newUser.$pristine || newUser.$invalid || !uniqueEmail" ng-click="addUser(newUser)">Add</a>
+		</form>
+
+
+
+	</div>
+</div>

@@ -2,7 +2,7 @@ app.directive('usersNew', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'partials/users.new.html',
+		templateUrl: 'partials/new.html',
 		scope: {
 			users: '=',
 			newUser: '=',

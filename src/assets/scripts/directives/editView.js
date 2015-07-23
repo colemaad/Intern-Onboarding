@@ -2,7 +2,7 @@ app.directive('usersEdit', function() {
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: 'partials/users.edit.html',
+		templateUrl: 'partials/edit.html',
 		scope: {
 			modUser: '=',
 			userName: '@',
