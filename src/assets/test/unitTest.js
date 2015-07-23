@@ -17,9 +17,7 @@ describe('Main Test ', function() {
     it('should be profile controller', function() {
       expect('app.profileController').toBeDefined();
     });
-
   });
-
 
 	describe('user Controller', function() {
 		var data = {
