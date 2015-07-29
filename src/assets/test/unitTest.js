@@ -26,7 +26,17 @@ describe('Main Test ', function() {
 			phone: "239-678-9999",
 			email: "coler@banno.com"
 		};
-		var peeps;
+    var data2 = {
+      firstName: "Aber",
+			lastName: "Coler",
+			phone: "239-678-9999",
+			email: "lisadddd@banno.com"
+    };
+
+
+		var peeps = [data, data2];
+
+
 		var scope;
 		beforeEach(inject(function ($rootScope, $controller, _userService_) {
 			scope = $rootScope.$new();
@@ -64,16 +74,20 @@ describe('Main Test ', function() {
 			it('should delete user', function() {
 				spyOn(userService, 'deleteUser');
 				scope.deleteUser(data);
-				expect(userService.deleteUser).not.toThrowError(TypeError);
+				expect(userService.deleteUser).toHaveBeenCalled();
 			});
 			it('should open modal', function() {
 				expect('app.usersController.openModal').toBeTruthy;
 			});
 			it('should check email', function() {
-				expect('app.usersController.checkEmail').toBeTruthy;
+        scope.checkEmail('coler@banno.com');
+				expect(scope.uniqueEmail).toBe(true);
+        scope.checkEmail(data.email);
+        expect(scope.uniqueEmail).toBe(true);
+
 			});
-			it('should check redirect', function(){
-				expect('app.usersController.redirect').not.toBe(null);
+			it('should check redirect', function(){0
+
 
 			});
 
